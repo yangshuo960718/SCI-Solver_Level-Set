@@ -364,7 +364,7 @@ void meshFIM3d::Partition_METIS(int metissize, bool verbose)
   int edgeCount = 0;
   for(int vIt = 0; vIt < nn; vIt++)
   {
-    edgeCount += m_meshPtr->neighbors[vIt].size();
+    edgeCount += m_meshPtr->neighbors[vIt].size();// m_meshPtr->neighbors[vIt].size()：一个节点周围节点数
   }
 
   m_largest_num_inside_mem = 0;
@@ -372,7 +372,7 @@ void meshFIM3d::Partition_METIS(int metissize, bool verbose)
   {
     if(m_meshPtr->adjacenttets[i].size() > m_largest_num_inside_mem)
       m_largest_num_inside_mem = m_meshPtr->adjacenttets[i].size();
-  }
+  }//找一个节点周围最多有多少个单元
   if (verbose)
     printf("m_largest_num_inside_mem = %d\n", m_largest_num_inside_mem);
 
